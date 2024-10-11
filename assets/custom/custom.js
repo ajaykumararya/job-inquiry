@@ -1062,6 +1062,7 @@ $(document).on('click', '.click-to-view-link', function (r) {
         });
     }
 });
+
 document.addEventListener('DOMContentLoaded', function (e) {
     const fetch_duration = $('.fetch-duration');
     fetch_duration.on('change', function () {

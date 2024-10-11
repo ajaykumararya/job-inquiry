@@ -60,6 +60,45 @@ $config['cms_setting'] = array(
             'icon' => array('tablet-text-down', 4),
             'url' => 'cms/enquiry-data'
         ),
+        array(
+            'label' => 'Job Section',
+            'type' => 'job_section',
+            'icon' => array('picture', 3),
+            'submenu' => array(
+                array(
+                    'label' => 'Category',
+                    'type' => 'job_category',
+                    'icon' => array('picture', 4),
+                    'url' => 'job/category',
+                ),
+                array(
+                    'label' => 'Sub Category',
+                    'type' => 'sub_category',
+                    'icon' => array('youtube', 4),
+                    'url' => 'job/sub-category',
+                ),
+                array(
+                    'label' => 'Job(s)',
+                    'type' => 'jobs',
+                    'icon' => array('youtube', 4),
+                    'submenu' => array(
+
+                        array(
+                            'label' => 'Add',
+                            'type' => 'add_job',
+                            'icon' => array('plus', 4),
+                            'url' => 'job/add',
+                        ),
+                        array(
+                            'label' => 'list',
+                            'type' => 'list_job',
+                            'icon' => array('tablet-text-down', 4),
+                            'url' => 'job/list',
+                        )
+                    )
+                )
+            )
+        ),
         /*
         array(
             'label' => 'Gallery',

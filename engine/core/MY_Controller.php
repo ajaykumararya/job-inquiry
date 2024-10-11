@@ -34,6 +34,7 @@ class MY_Controller extends MX_Controller
             'card_class' => 'card shadow-sm border-2 border-primary',
             'inr' => ' <span class="">₹</span> ',
             'current_date' => $this->ki_theme->date(),
+            'assets' => base_url('assets/file/'),
             'theme_url' => theme_url(),
             'document_path' => base_url() . defined('DOCUMENT_PATH') ? DOCUMENT_PATH : 'assets',
             'admission_button' => $this->ki_theme->save_button('Admission Now', ' fa fa-plus'),
@@ -81,7 +82,7 @@ class MY_Controller extends MX_Controller
             // $saveName = UPLOAD.$x;
             $config['upload_path'] = UPLOAD;
             $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf';
-            $config['max_size'] = ($this->ki_theme->default_vars('max_upload_size') / 1024); // max_size in kb
+            // $config['max_size'] = ($this->ki_theme->default_vars('max_upload_size') / 1024); // max_size in kb
             $config['file_name'] = $x;
             $this->load->library('upload', $config);
             if ($this->upload->do_upload($file)) {

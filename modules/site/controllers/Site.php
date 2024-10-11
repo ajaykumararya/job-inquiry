@@ -55,6 +55,9 @@ class Site extends Site_Controller
                     case 'form':
                         $html .= $this->parse('form/' . $page->event_id, [], true);
                         break;
+                    case 'job_category':
+                        $html .= $this->parse('pages/job_category', (array)$page,true);
+                        break;
                     case 'locate_us':
                         $this->set_data('is_unique_page', true);
                         if (file_exists(THEME_PATH . 'pages/locate_us' . EXT))

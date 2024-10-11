@@ -10,12 +10,12 @@ $menu = array(
             'icon' => array('file', 4),
             'url' => 'cms/static-page/about_us',
         ),
-        array(
-            'label' => 'Locate Us',
-            'type' => 'locate_us',
-            'icon' => array('file', 4),
-            'url' => 'cms/static-page/locate_us/multiple',
-        ),
+        // array(
+        //     'label' => 'Locate Us',
+        //     'type' => 'locate_us',
+        //     'icon' => array('file', 4),
+        //     'url' => 'cms/static-page/locate_us/multiple',
+        // ),
         array(
             'label' => 'Square Icon Box',
             'type' => 'square_icon_box',
@@ -23,12 +23,12 @@ $menu = array(
             'url' => 'cms/static-page/square_icon_box',
         ),
         
-        array(
-            'label' => 'Our Services',
-            'type' => 'our_services',
-            'icon' => array('file', 4),
-            'url' => 'cms/static-page/our_services',
-        ),
+        // array(
+        //     'label' => 'Our Services',
+        //     'type' => 'our_services',
+        //     'icon' => array('file', 4),
+        //     'url' => 'cms/static-page/our_services',
+        // ),
         array(
             'label' => 'Counter Box',
             'type' => 'counter_box',

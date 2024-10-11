@@ -6,3 +6,4 @@ $config['form'] = 'Form';
 $config['content'] = 'Page Content';
 $config['image_gallery'] = 'Image Gallery';
 $config['locate_us'] = 'Special Section';
+$config['job_category'] = 'Job Categorys Section';

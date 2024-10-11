@@ -85,6 +85,21 @@ function label($msg, $class = 'info')
 {
     return '<label class="badge badge-' . $class . '">' . $msg . '</label>';
 }
+function getRandomBootstrapClass() {
+    
+    $bootstrapClasses = [
+        'primary',
+        'secondary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'light',
+        'dark',
+    ];
+    $randomIndex = array_rand($bootstrapClasses);
+    return $bootstrapClasses[$randomIndex];
+}
 function sidebar_toggle($true, $false = '')
 {
     return isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_state"] === "on" ? $true : $false;
