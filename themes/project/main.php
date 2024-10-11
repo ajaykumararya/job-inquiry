@@ -611,7 +611,27 @@
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
+                    <?php
+                    $footer_sections = $this->ki_theme->config('footer_sections');
+                    if ($footer_sections) {
+                        foreach ($footer_sections as $index => $title) {
+                            $myTitle = $this->SiteModel->get_setting($index . '_text', $title);
+                            echo '<div class="col-lg-3 col-md-6">
+                                <h5 class="text-white mb-4">' . $myTitle . '</h5>';
+                            $fields = $this->SiteModel->get_setting($index . '_links', '', true);
+                            if ($fields) {
+                                foreach ($fields as $value) {
+                                    $my_index = $value->title;
+                                    $value = $value->link;
+                                    echo "<a class='btn btn-link text-white-50' href='$value'>$my_index</a>";
+                                }
+                            }
+                            echo '</div>';
+                        }
+                    }
+
+                    ?>
+                    <!-- <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Company</h5>
                         <a class="btn btn-link text-white-50" href="">About Us</a>
                         <a class="btn btn-link text-white-50" href="">Contact Us</a>
@@ -626,20 +646,61 @@
                         <a class="btn btn-link text-white-50" href="">Our Services</a>
                         <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
                         <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
-                    </div>
+                    </div> -->
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Contact</h5>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{address}</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{number}</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>{email}</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <?php
+                            $facebook = $this->ki_theme->config('facebook');
+                            $instagram = $this->ki_theme->config('instagram');
+                            $twitter = $this->ki_theme->config('twitter');
+                            $linkedin = $this->ki_theme->config('linkedin');
+                            $youtube = $this->ki_theme->config('youtube');
+
+                            if ($facebook) {
+                                ?>
+                                <a class="btn btn-outline-light btn-social" href="<?= $facebook ?>"><i
+                                        class="fab fa-facebook-f"></i></a>
+                                <?php
+                            }
+                            if ($twitter) {
+                                ?>
+                                <a class="btn btn-outline-light btn-social" href="<?= $twitter ?>"><i
+                                        class="fab fa-twitter"></i></a>
+
+                                <?php
+                            }
+                            if ($linkedin) {
+                                ?>
+                            <a class="btn btn-outline-light btn-social" href="<?= $linkedin ?>"><i class="fab fa-linkedin-in"></i></a>
+
+                                
+                                <?php
+                            }
+                            if ($youtube) {
+                                ?>
+                            <a class="btn btn-outline-light btn-social" href="<?= $youtube ?>"><i class="fab fa-youtube"></i></a>
+
+                              
+                                <?php
+                            }
+                            if ($instagram) {
+                                ?>
+                                <a target="_blank" class="btn btn-outline-light btn-social" href="<?= $instagram ?>"><i class="fab fa-instagram"></i></a>
+                              
+                                <?php
+                            }
+                            ?>
+                            <!-- <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a> -->
+                            <!-- <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a> -->
+                            <!-- <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a> -->
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <!-- <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Newsletter</h5>
                         <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
@@ -648,26 +709,26 @@
                             <button type="button"
                                 class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="container">
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                            &copy; <a class="border-bottom" href="#">{title}</a>, All Right Reserved.
 
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            Designed By <a class="border-bottom" href="<?= CMS_DEV_URL ?>">Arya</a>
                         </div>
-                        <div class="col-md-6 text-center text-md-end">
+                        <!-- <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
                                 <a href="">Home</a>
                                 <a href="">Cookies</a>
                                 <a href="">Help</a>
                                 <a href="">FQAs</a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
